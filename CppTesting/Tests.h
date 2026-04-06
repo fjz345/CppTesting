@@ -5,6 +5,9 @@
 
 #include "TestScope.h"
 
+using TestType = int64_t;
+using RandomRemoveType = uint8_t; // bool
+
 template<bool Reverse, bool RandomRemove, typename AccType>
 struct TestConfig
 {
@@ -20,7 +23,7 @@ using Configs = std::tuple<
 >;
 
 template<template<typename, typename, bool, bool> typename Func, typename T, typename Config>
-void RunTest(const std::vector<T>& Numbers, const std::vector<bool>& RandomRemoveMask, const char* Name)
+void RunTest(const std::vector<T>& Numbers, const std::vector<RandomRemoveType>& RandomRemoveMask, const char* Name)
 {
     std::vector<T> NumbersCopy = Numbers;
 
@@ -39,9 +42,9 @@ void RunTest(const std::vector<T>& Numbers, const std::vector<bool>& RandomRemov
 }
 
 
-inline void GenerateRandomMask(std::vector<bool> Masks, size_t N, int RemovePercent, uint32_t Seed)
+inline void GenerateRandomMask(std::vector<RandomRemoveType> Masks, size_t N, int RemovePercent, uint32_t Seed)
 {
-    std::vector<bool> Mask(N, false);
+    std::vector<RandomRemoveType> Mask(N, false);
     std::mt19937 rng(Seed);
     std::uniform_int_distribution<int> dist(1, 100);
 
@@ -50,7 +53,7 @@ inline void GenerateRandomMask(std::vector<bool> Masks, size_t N, int RemovePerc
 }
 
 template<typename T>
-__forceinline void EraseIfMasked(std::vector<T>& Numbers, const std::vector<bool>& Mask, size_t i)
+__forceinline void EraseIfMasked(std::vector<T>& Numbers, const std::vector<RandomRemoveType>& Mask, size_t i)
 {
     if (Mask[i])
     {
@@ -58,7 +61,7 @@ __forceinline void EraseIfMasked(std::vector<T>& Numbers, const std::vector<bool
     }
 }
 template<typename T>
-auto EraseIfMaskedIter(std::vector<T>& Numbers, const std::vector<bool>& Mask, typename std::vector<T>::iterator it)
+auto EraseIfMaskedIter(std::vector<T>& Numbers, const std::vector<RandomRemoveType>& Mask, typename std::vector<T>::iterator it)
 {
     size_t idx = std::distance(Numbers.begin(), it);
     if (Mask[idx])
@@ -71,7 +74,7 @@ auto EraseIfMaskedIter(std::vector<T>& Numbers, const std::vector<bool>& Mask, t
     }
 }
 template<typename T>
-auto EraseIfMaskedIter(std::vector<T>& Numbers, const std::vector<bool>& Mask, typename std::vector<T>::reverse_iterator rit)
+auto EraseIfMaskedIter(std::vector<T>& Numbers, const std::vector<RandomRemoveType>& Mask, typename std::vector<T>::reverse_iterator rit)
 {
     auto it = rit.base();
     --it;               
@@ -89,7 +92,7 @@ auto EraseIfMaskedIter(std::vector<T>& Numbers, const std::vector<bool>& Mask, t
 }
     
 template<typename T, typename VolatileT, bool Reverse, bool RandomRemove>
-__forceinline T Test_Sum_For(std::vector<T>& Numbers, const std::vector<bool>& RandomRemoveMasks)
+__forceinline T Test_Sum_For(std::vector<T>& Numbers, const std::vector<RandomRemoveType>& RandomRemoveMasks)
 {
     volatile VolatileT Sum = 0;
     if constexpr (Reverse)
@@ -134,7 +137,7 @@ __forceinline T Test_Sum_For(std::vector<T>& Numbers, const std::vector<bool>& R
     return Sum;
 }
 template<typename T, typename VolatileT, bool Reverse, bool RandomRemove>
-__forceinline T Test_Sum_Iter(std::vector<T>& Numbers, const std::vector<bool>& RandomRemoveMasks)
+__forceinline T Test_Sum_Iter(std::vector<T>& Numbers, const std::vector<RandomRemoveType>& RandomRemoveMasks)
 {
     volatile VolatileT Sum = 0;
 
@@ -186,12 +189,13 @@ do { \
 NumbersCopy = Numbers; \
 { \
 TEST_SCOPE(#FUNC "<" #T ", " #VolitileT ", " #ReverseVal ", " #RandomVal ">"); \
+std::cout << "NumbersCopy.size() = " << NumbersCopy.size() << std::endl; \
 auto result = FUNC<T, VolitileT, ReverseVal, RandomVal>(NumbersCopy, RandomRemoveMasks); \
 std::cout << "Result: " << result << "\n"; \
 } \
 } while(0)
 template<typename T>
-__forceinline  void RunAll_Test_Sum_For(std::vector<T>& Numbers, const std::vector<bool>& RandomRemoveMasks)
+__forceinline  void RunAll_Test_Sum_For(std::vector<T>& Numbers, const std::vector<RandomRemoveType>& RandomRemoveMasks)
 {
     std::vector<T> NumbersCopy;
 
@@ -205,7 +209,7 @@ __forceinline  void RunAll_Test_Sum_For(std::vector<T>& Numbers, const std::vect
     RUN_TEST_FUNC(Test_Sum_For, T, volatile T, true,  true);
 }
 template<typename T>
-__forceinline  void RunAll_Test_Sum_Iter(std::vector<T>& Numbers, const std::vector<bool>& RandomRemoveMasks)
+__forceinline  void RunAll_Test_Sum_Iter(std::vector<T>& Numbers, const std::vector<RandomRemoveType>& RandomRemoveMasks)
 {
     std::vector<T> NumbersCopy;
 
