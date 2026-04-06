@@ -1,106 +1,70 @@
 # CppTesting
 NUM_TEST_ITERATIONS = 1000000000
-Numbers START =====================
 Numbers Finished:
- 4.0351 seconds
-Numbers END ========================
-RandomRemoveMasks START =====================
+ 4.0579 seconds
 RandomRemoveMasks Finished:
- 0.493261 seconds
-RandomRemoveMasks END ========================
-Test_Sum_For<T, T, false, false> START =====================
+ 0.509568 seconds
 NumbersCopy.size() = 1000000000
 Result: 500010494127172
 Test_Sum_For<T, T, false, false> Finished:
- 0.369163 seconds
-Test_Sum_For<T, T, false, false> END ========================
-Test_Sum_For<T, T, true, false> START =====================
+ 0.386768 seconds
 NumbersCopy.size() = 1000000000
 Result: 500010494127172
 Test_Sum_For<T, T, true, false> Finished:
- 0.410491 seconds
-Test_Sum_For<T, T, true, false> END ========================
-Test_Sum_For<T, T, false, true> START =====================
+ 0.383203 seconds
 NumbersCopy.size() = 1000000000
 Result: 500010494127172
 Test_Sum_For<T, T, false, true> Finished:
- 0.856414 seconds
-Test_Sum_For<T, T, false, true> END ========================
-Test_Sum_For<T, T, true, true> START =====================
+ 0.640561 seconds
 NumbersCopy.size() = 1000000000
 Result: 500010494127172
 Test_Sum_For<T, T, true, true> Finished:
- 0.926548 seconds
-Test_Sum_For<T, T, true, true> END ========================
-Test_Sum_For<T, volatile T, false, false> START =====================
+ 0.827984 seconds
 NumbersCopy.size() = 1000000000
 Result: 500010494127172
 Test_Sum_For<T, volatile T, false, false> Finished:
- 0.359308 seconds
-Test_Sum_For<T, volatile T, false, false> END ========================
-Test_Sum_For<T, volatile T, true, false> START =====================
+ 0.45342 seconds
 NumbersCopy.size() = 1000000000
 Result: 500010494127172
 Test_Sum_For<T, volatile T, true, false> Finished:
- 0.343117 seconds
-Test_Sum_For<T, volatile T, true, false> END ========================
-Test_Sum_For<T, volatile T, false, true> START =====================
+ 0.476434 seconds
 NumbersCopy.size() = 1000000000
 Result: 500010494127172
 Test_Sum_For<T, volatile T, false, true> Finished:
- 0.66321 seconds
-Test_Sum_For<T, volatile T, false, true> END ========================
-Test_Sum_For<T, volatile T, true, true> START =====================
+ 0.698489 seconds
 NumbersCopy.size() = 1000000000
 Result: 500010494127172
 Test_Sum_For<T, volatile T, true, true> Finished:
- 0.64172 seconds
-Test_Sum_For<T, volatile T, true, true> END ========================
-Test_Sum_Iter<T, T, false, false> START =====================
+ 0.588062 seconds
 NumbersCopy.size() = 1000000000
 Result: 500010494127172
 Test_Sum_Iter<T, T, false, false> Finished:
- 0.316495 seconds
-Test_Sum_Iter<T, T, false, false> END ========================
-Test_Sum_Iter<T, T, true, false> START =====================
+ 0.386257 seconds
 NumbersCopy.size() = 1000000000
 Result: 500010494127172
 Test_Sum_Iter<T, T, true, false> Finished:
- 0.388681 seconds
-Test_Sum_Iter<T, T, true, false> END ========================
-Test_Sum_Iter<T, T, false, true> START =====================
+ 0.307393 seconds
 NumbersCopy.size() = 1000000000
 Result: 500010494127172
 Test_Sum_Iter<T, T, false, true> Finished:
- 0.588322 seconds
-Test_Sum_Iter<T, T, false, true> END ========================
-Test_Sum_Iter<T, T, true, true> START =====================
+ 0.59159 seconds
 NumbersCopy.size() = 1000000000
 Result: 500010494127172
 Test_Sum_Iter<T, T, true, true> Finished:
- 0.569809 seconds
-Test_Sum_Iter<T, T, true, true> END ========================
-Test_Sum_Iter<T, volatile T, false, false> START =====================
+ 0.565493 seconds
 NumbersCopy.size() = 1000000000
 Result: 500010494127172
 Test_Sum_Iter<T, volatile T, false, false> Finished:
- 0.316887 seconds
-Test_Sum_Iter<T, volatile T, false, false> END ========================
-Test_Sum_Iter<T, volatile T, true, false> START =====================
+ 0.38896 seconds
 NumbersCopy.size() = 1000000000
 Result: 500010494127172
 Test_Sum_Iter<T, volatile T, true, false> Finished:
- 0.385324 seconds
-Test_Sum_Iter<T, volatile T, true, false> END ========================
-Test_Sum_Iter<T, volatile T, false, true> START =====================
+ 0.382332 seconds
 NumbersCopy.size() = 1000000000
 Result: 500010494127172
 Test_Sum_Iter<T, volatile T, false, true> Finished:
- 0.594706 seconds
-Test_Sum_Iter<T, volatile T, false, true> END ========================
-Test_Sum_Iter<T, volatile T, true, true> START =====================
+ 0.587363 seconds
 NumbersCopy.size() = 1000000000
 Result: 500010494127172
 Test_Sum_Iter<T, volatile T, true, true> Finished:
- 0.569493 seconds
-Test_Sum_Iter<T, volatile T, true, true> END ========================
+ 0.563171 seconds

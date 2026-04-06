@@ -16,7 +16,7 @@ struct TestScope
     TestScope()
     {
         start = std::chrono::steady_clock::now();
-        std::cout << Name << " START =====================" << std::endl;
+        //std::cout << Name << " START =====================" << std::endl;
         auto seconds = std::chrono::duration<double>(start.time_since_epoch());
         if (bShowTimestamp)
         {
@@ -41,7 +41,7 @@ struct TestScope
             std::cout << Name << " Finished:\n " << elapsed.count() << " microseconds\n";
         }
 
-        std::cout << Name << " END ========================" << std::endl;
+        //std::cout << Name << " END ========================" << std::endl;
     }
 
     std::chrono::steady_clock::time_point start;
