@@ -199,12 +199,12 @@ __forceinline  void RunAll_Test_Sum_For(std::vector<T>& Numbers, const std::vect
 {
     std::vector<T> NumbersCopy;
 
+    RUN_TEST_FUNC(Test_Sum_For, T, T, false, false);
+    RUN_TEST_FUNC(Test_Sum_For, T, T, true,  false);
+    RUN_TEST_FUNC(Test_Sum_For, T, T, false, true);
+    RUN_TEST_FUNC(Test_Sum_For, T, T, true,  true);
     RUN_TEST_FUNC(Test_Sum_For, T, volatile T, false, false);
     RUN_TEST_FUNC(Test_Sum_For, T, volatile T, true,  false);
-    RUN_TEST_FUNC(Test_Sum_For, T, volatile T, false, false);
-    RUN_TEST_FUNC(Test_Sum_For, T, volatile T, true,  false);
-    RUN_TEST_FUNC(Test_Sum_For, T, volatile T, false, true);
-    RUN_TEST_FUNC(Test_Sum_For, T, volatile T, true,  true);
     RUN_TEST_FUNC(Test_Sum_For, T, volatile T, false, true);
     RUN_TEST_FUNC(Test_Sum_For, T, volatile T, true,  true);
 }
@@ -213,12 +213,12 @@ __forceinline  void RunAll_Test_Sum_Iter(std::vector<T>& Numbers, const std::vec
 {
     std::vector<T> NumbersCopy;
 
+    RUN_TEST_FUNC(Test_Sum_Iter, T, T, false, false);
+    RUN_TEST_FUNC(Test_Sum_Iter, T, T, true,  false);
+    RUN_TEST_FUNC(Test_Sum_Iter, T, T, false, true);
+    RUN_TEST_FUNC(Test_Sum_Iter, T, T, true,  true);
     RUN_TEST_FUNC(Test_Sum_Iter, T, volatile T, false, false);
     RUN_TEST_FUNC(Test_Sum_Iter, T, volatile T, true,  false);
-    RUN_TEST_FUNC(Test_Sum_Iter, T, volatile T, false, false);
-    RUN_TEST_FUNC(Test_Sum_Iter, T, volatile T, true,  false);
-    RUN_TEST_FUNC(Test_Sum_Iter, T, volatile T, false, true);
-    RUN_TEST_FUNC(Test_Sum_Iter, T, volatile T, true,  true);
     RUN_TEST_FUNC(Test_Sum_Iter, T, volatile T, false, true);
     RUN_TEST_FUNC(Test_Sum_Iter, T, volatile T, true,  true);
 }
